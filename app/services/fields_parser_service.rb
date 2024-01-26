@@ -19,9 +19,7 @@ class FieldsParserService
       found = html_doc.css(v)
       fields_found[k] = found.text
     end
-
-    binding.pry
-
+    
     fields_found
   end
 end

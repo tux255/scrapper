@@ -5,21 +5,23 @@ class FieldsParserService
     html_doc = Nokogiri::HTML(html)
     fields_found = {}
 
-    if fields['meta'].present?
-      fields_found['meta'] = {}
-
-      fields['meta'].each { |name|
-        fields_found['meta'][name] = html_doc.css("meta[name='#{name}']").last['content']
-      }
+    fields_found['meta'] = fields['meta'].each_with_object({}) do |name, result|
+      meta_tag = html_doc.css("meta[name='#{name}']").last
+      result[name] = meta_tag['content'] if meta_tag
     end
 
     fields.each do |k, v|
       next if k == 'meta'
 
       found = html_doc.css(v)
-      fields_found[k] = found.text
+
+      fields_found[k] = if found.count > 1
+                          found.map { |f| f.try(:text) }
+                        else
+                          found.try(:text)
+                        end
     end
-    
+
     fields_found
   end
 end

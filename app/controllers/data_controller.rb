@@ -1,17 +1,18 @@
-# require_relative '../services/html_parser_service'
-
 class DataController < ApplicationController
+  before_action :validate_params, only: [:perform]
+
   def perform
-    html = HtmlParserService.perform(data_params[:url])
-    response = FieldsParserService.perform(html, data_params[:fields])
+    html = HtmlParserService.perform(params[:url])
+    response = FieldsParserService.perform(html, params[:fields])
 
     render :json => response
   end
 
   private
 
-  def data_params
-    # TODO: Do I need require here > params.require(:fields) or permit should be?
-    params.permit(:url, fields: {}).to_h
+  def validate_params
+    unless params[:url].present? && params[:fields].present?
+      render json: { error: 'Both "url" and "fields" parameters are required' }, status: :bad_request
+    end
   end
 end

@@ -33,8 +33,6 @@ GEM
       rack-test (>= 0.6.3)
       rails-dom-testing (~> 2.0)
       rails-html-sanitizer (~> 1.0, >= 1.2.0)
-    actionpack-action_caching (1.2.2)
-      actionpack (>= 4.0.0)
     actiontext (7.0.8)
       actionpack (= 7.0.8)
       activerecord (= 7.0.8)
@@ -88,6 +86,7 @@ GEM
     globalid (1.2.1)
       activesupport (>= 6.1)
     hashdiff (1.1.0)
+    headless (2.3.1)
     i18n (1.14.1)
       concurrent-ruby (~> 1.0)
     io-console (0.7.2)
@@ -212,9 +211,9 @@ PLATFORMS
   x86_64-linux
 
 DEPENDENCIES
-  actionpack-action_caching (~> 1.2)
   bootsnap
   debug
+  headless (~> 2.3)
   nokogiri (~> 1.16)
   pry (~> 0.14.2)
   puma (~> 5.0)

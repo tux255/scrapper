@@ -31,6 +31,7 @@ end
 
 gem "nokogiri", "~> 1.16"
 
-gem "actionpack-action_caching", "~> 1.2"
 
 gem "watir", "~> 7.3"
+
+gem "headless", "~> 2.3"

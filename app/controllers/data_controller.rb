@@ -1,5 +1,6 @@
 class DataController < ApplicationController
   before_action :validate_params, only: [:perform]
+  caches_action :perform, expires_in: 1.hour
 
   def perform
     html = HtmlParserService.perform(params[:url])

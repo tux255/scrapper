@@ -1,24 +1,18 @@
-# README
+# Scrapper service
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+* Ruby: 3.2.1
 
-Things you may want to cover:
+* System dependencies:
+  xvfb required
 
-* Ruby version
+* Database:
+  no database used
 
-* System dependencies
+* How to run the app:
+  rails s
 
-* Configuration
+* How to run the test suite:
+  rails rspec spec/
 
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+* Services:
+  file_store cache enebled for DataController#perform

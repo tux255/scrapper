@@ -9,7 +9,6 @@ RSpec.describe HtmlParserService do
 
     context 'successful cases' do
       it 'fetches HTML from a valid URL' do
-        # Мокируем запрос с помощью WebMock
         url = 'http://example.com'
         body = '<html><body>Valid HTML</body></html>'
         stub_request(:any, url).to_return(body: body)
@@ -22,7 +21,6 @@ RSpec.describe HtmlParserService do
 
     context 'unsuccessful cases' do
       it 'returns nil when URL is invalid or unreachable' do
-        # Мокируем запрос с недействительным URL
         url = 'invalid_url'
         stub_request(:any, url).to_raise(SocketError)
 
@@ -32,7 +30,6 @@ RSpec.describe HtmlParserService do
       end
 
       it 'returns nil when HTTP request returns an error status' do
-        # Мокируем запрос, чтобы вернуть ошибочный HTTP-статус
         url = 'http://example.com/error'
         stub_request(:any, url).to_return(status: [500, 'Internal Server Error'])
 

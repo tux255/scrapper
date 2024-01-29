@@ -45,7 +45,6 @@ RSpec.describe FieldsParserService do
       end
 
       it 'returns an empty hash when HTML has incorrect markup' do
-        # Invalid HTML with a missing closing tag
         invalid_html = '<html><head></html>'
         result = FieldsParserService.perform(invalid_html, {})
 

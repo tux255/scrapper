@@ -12,7 +12,7 @@
   rails s
 
 * How to run the test suite:
-  rails rspec spec/
+  rspec spec/
 
 * Services:
   file_store cache enebled for DataController#perform

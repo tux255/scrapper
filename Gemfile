@@ -56,3 +56,5 @@ gem "rspec-rails", "~> 6.1"
 
 
 gem "webmock", "~> 3.19"
+
+gem "actionpack-action_caching", "~> 1.2"

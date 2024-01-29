@@ -35,7 +35,7 @@ RSpec.describe HtmlParserService do
 
         result = HtmlParserService.perform(url)
 
-        expect(result).to be_empty
+        expect(result).to be_nil
       end
     end
   end

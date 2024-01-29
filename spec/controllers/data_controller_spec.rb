@@ -21,21 +21,21 @@ RSpec.describe DataController, type: :controller do
         get :perform
 
         expect(response).to have_http_status(:bad_request)
-        expect(JSON.parse(response.body)).to include('error' => 'Both "url" and "fields" parameters are required')
+        expect(JSON.parse(response.body)).to include('error' => "Both 'url' and 'fields' parameters are required")
       end
 
       it 'returns a bad request response when url is missing' do
         get :perform, params: { fields: { 'meta' => ['format-detection'] } }
 
         expect(response).to have_http_status(:bad_request)
-        expect(JSON.parse(response.body)).to include('error' => 'Both "url" and "fields" parameters are required')
+        expect(JSON.parse(response.body)).to include('error' => "Both 'url' and 'fields' parameters are required")
       end
 
       it 'returns a bad request response when fields is missing' do
         get :perform, params: { url: 'http://example.com' }
 
         expect(response).to have_http_status(:bad_request)
-        expect(JSON.parse(response.body)).to include('error' => 'Both "url" and "fields" parameters are required')
+        expect(JSON.parse(response.body)).to include('error' => "Both 'url' and 'fields' parameters are required")
       end
     end
   end
